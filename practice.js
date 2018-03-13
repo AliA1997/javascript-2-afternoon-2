@@ -18,7 +18,9 @@ var arr = [10,20,30];
 */
 
 //Code Here
-
+function first(arr) {
+  return arr[0];
+}
 
 
 ////////// PROBLEM 2 //////////
@@ -33,7 +35,9 @@ var arr = [40,50,60];
 */
 
 //Code Here
-
+function last(arr) {
+  return arr[arr.length - 1];
+}
 
 
 ////////// PROBLEM 3 //////////
@@ -48,7 +52,11 @@ var family = ['Tyler', 'Jordyn', 'Ryan', 'Chelsey', 'Ireland'];
 */
 
 //Code Here
-
+function looper(family) {
+  for(var i = 0; i < family.length; i++) {
+    alert(family[i]);
+  }
+}
 
 
 ////////// PROBLEM 4 //////////
@@ -63,7 +71,11 @@ var letters = ['A', 'B', 'C', 'D', 'E'];
 */
 
 //Code Here
-
+function reversedLooper(letters) {
+  for(var i = letters.length - 1; i >= 0; i++) {
+    alert(letters[i]);
+  }
+}
 
 
 ////////// PROBLEM 5 //////////
@@ -78,7 +90,14 @@ var nums = [1,2,3,6,22,98,45,23,22,12];
 */
 
 //Code Here
-
+function evenFinder(nums) {
+  const evens = [];
+  for(var i = 0; i < nums.length; i++) {
+    if(nums[i] % 2 == 0) {
+      evens.push(nums[i]);
+    }
+  }
+}
 
 
 ////////// EXTRA PRACTICE PROBLEMS BELOW //////////
@@ -95,7 +114,19 @@ var numbersArray = [1,2,34,54,55,34,32,11,19,17,54,66,13];
 */
 
 //Code Here
-
+function divider(numbersArray) {
+  const evens = [];
+  const odds = [];
+  const arrs = [ evens, odds];
+  numbersArray.forEach((val) => {
+    if(val % 2 === 0) {
+      evens.push(val);
+    } else if(val % 2 === 1) {
+      odds.push(val);
+    }
+  });
+  return arrs;
+}
 
 
 ////////// PROBLEM 7 //////////
@@ -116,8 +147,11 @@ var getRandomArbitrary = function() {
 */
 
 //Code Here
-
-
+function finder(randomNum, numbers){
+  numbers.forEach((val) => {
+    return val === randomNum ? true : false
+  })
+}
 
 ////////// PROBLEM 8 //////////
 
@@ -134,7 +168,7 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
   Once you do that, write another function called addItem that is given two arguments, the first is myGroceryList and the second is an item to add to your grocery list. 
   In addItem add the item you passed in to myGroceryList then return the new, updated grocery list.
 
-  In both the removeItem function and the addItem function, you will also need to check for valid aurguments. SpecRunner will try to call your functions without passing in valid aurguments. 
+  In both the removeItem function and the addItem function, you will also need to check for valid arguments. SpecRunner will try to call your functions without passing in valid aurguments. 
   When this happens, you will need to respond by returning an empty array.
 
   Here are some examples of calling your functions and what should be returned:
@@ -143,9 +177,25 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 */
 
 //Code Here
+function removeItem(myGroceryList, item) {
+  if(myGroceryList === undefined || item === undefined) {
+    return [];
+  }
+  for(var i = myGroceryList.length - 1; i > 0; i--) {
+    if(myGroceryList[i] === item) {
+      myGroceryList.splice(i, 1);
+    }
+  }
+  return myGroceryList;
+}
 
-
-
+function addItem(myGroceryList, item) {
+  if(myGroceryList === undefined || item === undefined) {
+    return [];
+  }
+  myGroceryList.push(item);
+  return myGroceryList;
+}
 ////////// PROBLEM 9 //////////
 
 /*
@@ -153,8 +203,13 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 */
 
 //Code Here
-
-
+function maker() {
+  const arr = [];
+  for(var i = 0; i < arr.length; i++) {
+    arr.push(i);
+  }
+  return arr;
+}
 
 ////////// PROBLEM 10 //////////
 
@@ -169,7 +224,12 @@ var numbers = [5, '9', 16, 19, '25', '34', 48];
 */
   
 //Code Here
-
+function addTen(numbers) {
+  numbers.map((val) => {
+    return val + 10;
+  })
+  return numbers;
+}
 
 
 ////////// PROBLEM 11 //////////
@@ -195,7 +255,9 @@ for(var i = 0; i < num2; i++){
 
 //Code Here
 
-
+function longer(arr1, arr2) {
+  return arr1.length > arr2.length ? arr1 : arr2
+}
 
 /*
   As a continuation of the previous problem, write another function called 'both'.
@@ -207,7 +269,14 @@ for(var i = 0; i < num2; i++){
 
 //Code Here
 
-
+function both(arr1, arr2) {
+  for(var i = arr1.length - 1; i > 0; i--) {
+      console.log(arr1[i]);
+    for(var j = arr2.length - 1; i > 0; i--) {
+      console.log(arr2[i]);
+    }
+  }
+}
 
 ////////// PROBLEM 12 //////////
 
@@ -246,7 +315,11 @@ var colt = {
 */
 
 //Code Here
-
+function addEmployee(arr) {
+  for(var i = 0; i < 4; i++) {
+    devMountainEmployees.push(arr[i]);
+  }
+}
 
 
 /*
