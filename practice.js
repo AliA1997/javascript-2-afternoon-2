@@ -268,14 +268,26 @@ function longer(arr1, arr2) {
 */
 
 //Code Here
-
-function both(arr1, arr2) {
-  for(var i = arr1.length - 1; i > 0; i--) {
-      console.log(arr1[i]);
-    for(var j = arr2.length - 1; i > 0; i--) {
-      console.log(arr2[i]);
+function checkBothArray(arr1, arr2) {
+  let arr3 = [];
+  //When checking if a value is in 2 different arrays use 2 for loops, or the merge sort algorithm.
+  for(var i = 0; i < arr1.length; i++) {
+    for(var j = 0; j < arr2.length; j++) {
+      if(arr1[i] === arr2[j]) {
+        arr3.push(arr2[j]);
+      }
     }
   }
+  return arr3;
+}
+function both(arr1, arr2) {
+  let resultArr = []
+  if(arr1.length > arr2.length) {
+    resultArr = checkBothArray(arr1, arr2);
+  } else {
+    resultArr = checkBothArray(arr2, arr1);
+  }
+  return resultArr;
 }
 
 ////////// PROBLEM 12 //////////
@@ -315,12 +327,14 @@ var colt = {
 */
 
 //Code Here
-function addEmployee(arr) {
-  for(var i = 0; i < 4; i++) {
-    devMountainEmployees.push(arr[i]);
-  }
+function addEmployee(arr, employee) {
+  arr.push(employee);
+  console.log(arr);
 }
-
+addEmployee(devMountainEmployees, tyler);
+addEmployee(devMountainEmployees, cahlan);
+addEmployee(devMountainEmployees, ryan);
+addEmployee(devMountainEmployees, colt);
 
 /*
   Now let's say Cahlan has a mental breakdown and has to take a leave of absence to 'find himself'.
@@ -328,7 +342,11 @@ function addEmployee(arr) {
 */
 
 //Code Here
-
+devMountainEmployees.forEach((employee, index) => {
+  if(employee.name = 'Cahlan') {
+    devMountainEmployees.splice(index, 1);
+  }
+})
 
 
 ////////// PROBLEM 13 //////////
@@ -341,7 +359,26 @@ function addEmployee(arr) {
 
 //Code Here
 
-
+const users = [
+  {
+    name: 'Ali Alhaddad',
+    email: 'alialhaddadAA@outlook.com',
+    password: 'password',
+    username: 'infinite_loop'
+  },
+  {
+    name: 'Lebron James',
+    email: 'thechosenone@gmail.com',
+    password: '2016 champs',
+    username: 'therealLebronJames'
+  },
+  {
+    name: 'Dwyane Wade',
+    email: 'flash@gmail.com',
+    password: '2006 nba finals mvp',
+    username: 'wade county'
+  }
+]
 
 /*
   Now add three user objects to your users array. Each user object should contain the following properties. name, email, password, username.
@@ -359,7 +396,7 @@ var user1 = {
 // Do not edit the code above.
 
 //Code Here
-
+users.push(user1);
 
 
 /*
@@ -373,9 +410,15 @@ var user1 = {
 */
 
 //Code Here
-
-
-
+function checkEmail(arr, email) {
+  for(var i = 0; i < arr.length; i++) {
+    if(arr[i].email === email) {
+      arr.splice(i, 1);
+    }
+    return arr;
+  }
+}
+users = checkEmail(users, users[3].email);
 /*
   The activity we just did is very much how data works in 'the real world'.
 */
