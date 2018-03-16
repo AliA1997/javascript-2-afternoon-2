@@ -72,7 +72,7 @@ var letters = ['A', 'B', 'C', 'D', 'E'];
 
 //Code Here
 function reversedLooper(letters) {
-  for(var i = letters.length - 1; i >= 0; i++) {
+  for(var i = letters.length - 1; i >= 0; i--) {
     alert(letters[i]);
   }
 }
@@ -97,6 +97,7 @@ function evenFinder(nums) {
       evens.push(nums[i]);
     }
   }
+  return evens;
 }
 
 
@@ -117,7 +118,7 @@ var numbersArray = [1,2,34,54,55,34,32,11,19,17,54,66,13];
 function divider(numbersArray) {
   const evens = [];
   const odds = [];
-  const arrs = [ evens, odds];
+  const arr1 = [ evens, odds];
   numbersArray.forEach((val) => {
     if(val % 2 === 0) {
       evens.push(val);
@@ -125,7 +126,7 @@ function divider(numbersArray) {
       odds.push(val);
     }
   });
-  return arrs;
+  return arr1;
 }
 
 
@@ -147,10 +148,14 @@ var getRandomArbitrary = function() {
 */
 
 //Code Here
-function finder(randomNum, numbers){
-  numbers.forEach((val) => {
-    return val === randomNum ? true : false
-  })
+function finder(numbers){
+  let randomNum = getRandomArbitrary();
+  for(var i = 0; i < numbers.length; i++) {
+    if(numbers[i] === randomNum) {
+      return true;
+    }
+  }
+  return false;
 }
 
 ////////// PROBLEM 8 //////////
@@ -181,7 +186,7 @@ function removeItem(myGroceryList, item) {
   if(myGroceryList === undefined || item === undefined) {
     return [];
   }
-  for(var i = myGroceryList.length - 1; i > 0; i--) {
+  for(var i = myGroceryList.length - 1; i >= 0; i--) {
     if(myGroceryList[i] === item) {
       myGroceryList.splice(i, 1);
     }
@@ -205,9 +210,10 @@ function addItem(myGroceryList, item) {
 //Code Here
 function maker() {
   const arr = [];
-  for(var i = 0; i < arr.length; i++) {
+  for(var i = 1; i < 216; i++) {
     arr.push(i);
   }
+  console.log(arr);
   return arr;
 }
 
@@ -225,10 +231,8 @@ var numbers = [5, '9', 16, 19, '25', '34', 48];
   
 //Code Here
 function addTen(numbers) {
-  numbers.map((val) => {
-    return val + 10;
-  })
-  return numbers;
+  var newArr =  numbers.map(val => Number(val) + 10)
+  return newArr;
 }
 
 
@@ -329,7 +333,7 @@ var colt = {
 //Code Here
 function addEmployee(arr, employee) {
   arr.push(employee);
-  console.log(arr);
+  return arr;
 }
 addEmployee(devMountainEmployees, tyler);
 addEmployee(devMountainEmployees, cahlan);
@@ -342,11 +346,11 @@ addEmployee(devMountainEmployees, colt);
 */
 
 //Code Here
-devMountainEmployees.forEach((employee, index) => {
-  if(employee.name = 'Cahlan') {
-    devMountainEmployees.splice(index, 1);
+for(var i = 0; i < devMountainEmployees.length; i++) {
+  if(devMountainEmployees[i].name === 'Cahlan'){
+    devMountainEmployees.splice(i, 1);
   }
-})
+}
 
 
 ////////// PROBLEM 13 //////////
@@ -410,13 +414,13 @@ users.push(user1);
 */
 
 //Code Here
-function checkEmail(arr, email) {
+function checkEmail(arr) {
   for(var i = 0; i < arr.length; i++) {
-    if(arr[i].email === email) {
+    if(arr[i].email === 'tylermcginnis33@gmail.com') {
       arr.splice(i, 1);
     }
-    return arr;
   }
+  return arr;
 }
 users = checkEmail(users, users[3].email);
 /*
